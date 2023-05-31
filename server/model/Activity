@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 const activitySchema = new Schema({
     description: String,
     type: String,
-    participiants: Number,
+    participants: Number,
     accessibility: Number,
     price: Number,
     link: String,

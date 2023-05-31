@@ -1,32 +1,95 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Activity from './components/Activity';
 import QueryForm from './components/QueryForm';
+import CreateActivity from './components/CreateActivity';
+import Favorites from './components/Favorites';
+
 
 function App() {
 
-  const [currentActivity, setCurrentActivity] = useState({})
+  const [currentActivity, setCurrentActivity] = useState(null)
+  const [favoriteActivities, setFavoriteActivities] = useState(null)
+  const [showRnd, setShowRnd] = useState(false)
+  const [showCreate, setShowCreate] = useState(false)
+  const [showFav, setShowFavorites] = useState(false)
 
-  function handleSubmit(e) {
+  useEffect(() => {
+    fetchFavorites()
+  }, [])
+
+  function handleSubmit(e, url) {
     e.preventDefault()
-
-        
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setCurrentActivity(data)
+      })
   }
+  
+ function handleSave(e, activity){
+  e.preventDefault()
+  fetch('http://localhost:3000/api/data', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(activity)
+  })
+  .then(() => {
+    console.log(activity)
+    fetchFavorites()
+  })
+  .catch(err => console.log(err))
+ }
 
-  async function fetchData(url) {
-    const response = await fetch(url)
-    const data = await response.json()
-    console.log(data);
+ function deleteActivity(id) {
+  console.log(id)
+  fetch(`http://localhost:3000/favorites/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(() => {
+      fetchFavorites()
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+function fetchFavorites(){
+    fetch('http://localhost:3000/favorites')
+      .then(response => response.json())
+      .then(response => {
+        setFavoriteActivities(response)
+        console.log(response)
+      })
 }
 
   return (
     <div className="App">
-      <QueryForm
-      handleSubmit={handleSubmit}
-      />
-      <Activity
-      activity={currentActivity}
-      />
+      <h1>I'm bored</h1>
+      <button onClick={() => {
+        setShowRnd(true)
+        setShowFavorites(false)
+        setShowCreate(false)
+      }}>Search a random activity</button>
+      <button onClick={() => {
+        setShowRnd(false)
+        setShowFavorites(false)
+        setShowCreate(true)
+      }}>Create your own activity!!!!!!!</button>
+      <button onClick={() => {
+        setShowRnd(false)
+        setShowFavorites(true)
+        setShowCreate(false)
+      }}>Show favorite activities</button>
+      {showRnd && <QueryForm
+        handleSubmit={handleSubmit}
+        currentActivity = {currentActivity}
+        handleSave={handleSave}
+      />}
+      {showCreate && <CreateActivity handleSave={handleSave}/>}
+      {showFav && <Favorites favorites={favoriteActivities} deleteActivity={deleteActivity} />}
     </div>
   );
 }

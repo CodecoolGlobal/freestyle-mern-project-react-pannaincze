@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const Activity = require('./model/Activity')
+const cors = require('cors');
+
 
 const app = express()
 
@@ -12,41 +14,55 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
   next()
 })
-
-
+app.use(cors({
+  origin: ['http://localhost:3001'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+}));
 
 mongoose.connect("mongodb+srv://pannaincze:8LrZGgipeY9veHEy@cluster0.6y94z96.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
 
-app.listen(3000, () => console.log('Server started on port 3000'))
-
-
-app.post('/api/data', (req, res) => {
-  console.log('asd')
+app.get('/favorites', async (req, res) => {
+  const data = await Activity.find({})
+  res.send(data)
+})    
   
-  const description = req.body.description;
+app.post('/api/data', (req, res) => {
+  
+  const description = req.body.activity;
   const type = req.body.type;
-  console.log(type)
-  const participiants = req.body.participiants;
+  const participants = req.body.participants;
   const accessibility = req.body.accessibility;
+  const price = req.body.price;
   const link = req.body.link;
   const image = req.body.image;
   const createdAt = Date.now();
-
+  
   const activity = new Activity({
-    description: "Play a video game",
-    type: "recreational",
-    participants: 1,
-    price: 0,
-    link: "",
-    accessibility: 0,
-    link: "",
+    description,
+    type,
+    participants,
+    price,
+    link,
+    image,
+    accessibility,
+    link,
     createdAt
-  });
-
-  activity.save()
-    .then(todo => res.json(todo))
-    .catch(err => res.status(400).json({ success: false }));
-
 });
+    
+activity.save()
+  .then(todo => res.json(todo))
+  .catch(err => res.status(400).json({ success: false }));
+    
+});
+
+app.delete('/favorites/:id', (req, res, next) => {
+  Activity.findByIdAndDelete(req.params.id)
+      .then(response => res.send(response))
+      .catch(error => next(error))
+})
+
+
+  
+app.listen(3000, () => console.log('Server started on port 3000'))
