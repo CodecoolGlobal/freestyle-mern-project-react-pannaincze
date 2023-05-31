@@ -24,12 +24,12 @@ mongoose.connect("mongodb+srv://pannaincze:8LrZGgipeY9veHEy@cluster0.6y94z96.mon
   .catch(err => console.error(err));
 
 app.get('/favorites', async (req, res) => {
-  const data = await Activity.find({})
+  const data = await Activity.find({});
   res.send(data)
-})    
-  
+})
+
 app.post('/api/data', (req, res) => {
-  
+
   const description = req.body.activity;
   const type = req.body.type;
   const participants = req.body.participants;
@@ -38,7 +38,7 @@ app.post('/api/data', (req, res) => {
   const link = req.body.link;
   const image = req.body.image;
   const createdAt = Date.now();
-  
+
   const activity = new Activity({
     description,
     type,
@@ -49,20 +49,30 @@ app.post('/api/data', (req, res) => {
     accessibility,
     link,
     createdAt
-});
-    
-activity.save()
-  .then(todo => res.json(todo))
-  .catch(err => res.status(400).json({ success: false }));
-    
+  });
+
+  activity.save()
+    .then(todo => res.json(todo))
+    .catch(err => res.status(400).json({ success: false }));
+
 });
 
 app.delete('/favorites/:id', (req, res, next) => {
   Activity.findByIdAndDelete(req.params.id)
-      .then(response => res.send(response))
-      .catch(error => next(error))
+    .then(response => res.send(response))
+    .catch(error => next(error))
+})
+
+app.patch('/favorites/:id', (req, res, next) => {
+  let update = req.body
+
+
+  Activity.findByIdAndUpdate(req.params.id, update, {
+    new: true
+  })
+    .then(response => res.send(response))
+    .catch(error => next(error))
 })
 
 
-  
 app.listen(3000, () => console.log('Server started on port 3000'))

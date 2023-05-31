@@ -56,6 +56,24 @@ function App() {
     });
 }
 
+function editActivity(id, activity, type, participants, price, accessibility) {
+  const data = { description: activity, type, participants, price, accessibility }
+  console.log(id, data)
+  fetch(`http://localhost:3000/favorites/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('response: ', data)
+      fetchFavorites()
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
 function fetchFavorites(){
     fetch('http://localhost:3000/favorites')
       .then(response => response.json())
@@ -89,7 +107,7 @@ function fetchFavorites(){
         handleSave={handleSave}
       />}
       {showCreate && <CreateActivity handleSave={handleSave}/>}
-      {showFav && <Favorites favorites={favoriteActivities} deleteActivity={deleteActivity} />}
+      {showFav && <Favorites favorites={favoriteActivities} deleteActivity={deleteActivity} editActivity={editActivity} />}
     </div>
   );
 }
