@@ -13,6 +13,8 @@ app.use(function (req, res, next) {
   next()
 })
 
+
+
 mongoose.connect("mongodb+srv://pannaincze:8LrZGgipeY9veHEy@cluster0.6y94z96.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
