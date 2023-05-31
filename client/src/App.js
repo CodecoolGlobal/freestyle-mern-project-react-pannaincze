@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import Activity from './components/Activity';
 import QueryForm from './components/QueryForm';
 import CreateActivity from './components/CreateActivity';
 import Favorites from './components/Favorites';

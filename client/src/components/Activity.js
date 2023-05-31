@@ -1,8 +1,9 @@
+import { useState } from 'react';
 
 
 function Activity({ activity, handleSave }) {
+    const [isSaved, setIsSaved] = useState(false)
 
-    
     return (
 
         <div className="activity">
@@ -11,7 +12,14 @@ function Activity({ activity, handleSave }) {
             <h3>Participants : {activity.participants}</h3>
             <h3>Price : {activity.price}</h3>
             <h3>Accessibility : {activity.accessibility}</h3>
-            <button onClick={ (e) => handleSave(e, activity) }>Add to favorite activities</button>
+            {!isSaved ?
+                <button onClick={(e) => {
+                        setIsSaved(true)
+                        handleSave(e, activity)
+                    }}>
+                Add to favorite activities
+                </button>
+                : <h3>You saved this activity to your favorites!</h3>}
         </div>
     )
 }

@@ -7,15 +7,20 @@ export default function CreateActivity({ handleSave }) {
     const [participants, setParticipants] = useState('')
     const [price, setPrice] = useState('')
     const [accessibility, setAccessibility] = useState('')
+    const [isSaved, setIsSaved] = useState(false)
+
 
     return (
-        <form onSubmit={((e) => handleSave(e, {
-          activity,
-          type,
-          participants,
-          price,
-          accessibility
-        }))}>
+        <form onSubmit={((e) => {
+            setIsSaved(true)
+            handleSave(e, {
+                activity,
+                type,
+                participants,
+                price,
+                accessibility
+            })}
+        )}>
             <label htmlFor="activity">Activity:</label>
             <input onChange={(e) => setActivity(e.target.value)} type="text" id="activity" />
             <label htmlFor="type">Type:</label>
@@ -40,7 +45,8 @@ export default function CreateActivity({ handleSave }) {
             </div>
             <label htmlFor="accessibility">Accessibility:</label>
             <input onChange={(e) => setAccessibility(e.target.value)} type="text" id="accessibility" />
-            <input type="submit" value="Add to favorite activities"></input>
+            {!isSaved ? <input type="submit" value="Add to favorite activities"></input> : 
+            <h3>You have added this activity to your favorites!</h3>}
         </form>
     )
 }
