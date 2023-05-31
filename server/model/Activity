@@ -6,6 +6,7 @@ const activitySchema = new Schema({
     type: String,
     participiants: Number,
     accessibility: Number,
+    price: Number,
     link: String,
     image: String,
     createdAt: Date,
