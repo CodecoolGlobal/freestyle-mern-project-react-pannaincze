@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 
-function Activity({ activity, handleSave }) {
-    const [isSaved, setIsSaved] = useState(false)
+function Activity({ activity, handleSave, isSaved, setIsSaved}) {
 
     return (
 

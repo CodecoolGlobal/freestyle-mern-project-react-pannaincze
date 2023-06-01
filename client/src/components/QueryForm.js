@@ -10,6 +10,8 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
     const [maxPrice, setMaxPrice] = useState('')
     const [price, setPrice] = useState('')
     const [accessibility, setAccessibility] = useState('')
+    const [isSaved, setIsSaved] = useState(false)
+
 
     function createURL() {
         let url = `http://www.boredapi.com/api/activity/`
@@ -43,7 +45,10 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
 
     return (
         <>
-            <form onSubmit={(e) => handleSubmit(e, createURL())} >
+            <form onSubmit={(e) => {
+                handleSubmit(e, createURL())
+                setIsSaved(false)
+                }} >
                 <label htmlFor="type">Type:</label>
                 <select onChange={(e) => setType(e.target.value)} id="type">
                     <option value="" disabled selected>Select your option</option>
@@ -76,6 +81,8 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
             {currentActivity && <Activity
                 activity={currentActivity}
                 handleSave={handleSave}
+                isSaved={isSaved}
+                setIsSaved={setIsSaved}
             />}
         </>
     )
