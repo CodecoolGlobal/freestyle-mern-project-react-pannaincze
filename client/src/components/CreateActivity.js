@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
 
-export default function CreateActivity({ handleSave }) {
+export default function CreateActivity({ handleSave, fetchImage }) {
 
     const [activity, setActivity] = useState('')
     const [type, setType] = useState('')
@@ -11,21 +11,24 @@ export default function CreateActivity({ handleSave }) {
     const [accessibility, setAccessibility] = useState('')
     const [isSaved, setIsSaved] = useState(false)
 
-
     return (
         <div className='createDiv'>
             <Form className='mx-5' onSubmit={((e) => {
                 setIsSaved(true)
-                handleSave(e, {
-                    activity,
-                    type,
-                    participants,
-                    price,
-                    accessibility
-                })
+                fetchImage(activity)
+                    .then(image => {
+                        console.log(image)
+                        handleSave(e, {
+                            activity,
+                            type,
+                            participants,
+                            price,
+                            accessibility,
+                        }, image,)
+                    })
             }
             )}>
-                <Form.Group className="mb-3" controlId="formActivity">
+                <Form.Group className="mb-3">
                     <Form.Label htmlFor="activity">Activity:</Form.Label>
                     <Form.Control onChange={(e) => setActivity(e.target.value)} type="text" id="activity" />
                     <Form.Label htmlFor="type">Type:</Form.Label>
@@ -52,7 +55,9 @@ export default function CreateActivity({ handleSave }) {
                 <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
                 <Form.Control onChange={(e) => setAccessibility(e.target.value)} type="text" id="accessibility" />
                 {!isSaved ?
-                    <Button className="mt-3" type="submit">Add to favorite activities</Button>
+                    <Button
+                        variant="danger"
+                        className="mt-3" type="submit">Add to favorite activities</Button>
                     :
                     <h3>You have added this activity to your favorites!</h3>}
             </Form>

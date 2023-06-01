@@ -19,7 +19,7 @@ export default function Edit({ activityToEdit, editActivity }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="danger" onClick={handleShow}>
         Edit
       </Button>
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -41,7 +41,7 @@ export default function Edit({ activityToEdit, editActivity }) {
               handleClose()
             }}
           >
-            <Form.Group className="mb-3" controlId="formActivity">
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="activity">Activity:</Form.Label>
               <Form.Control
                 onChange={(e) => setActivity(e.target.value)}
@@ -71,7 +71,7 @@ export default function Edit({ activityToEdit, editActivity }) {
                 <option value="busywork">Busywork</option>
               </Form.Select>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formParticipants">
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="participants">Participants:</Form.Label>
               <Form.Control
                 onChange={(e) => setParticipants(e.target.value)}
@@ -87,7 +87,7 @@ export default function Edit({ activityToEdit, editActivity }) {
               id="price"
               value={price}
             />
-            <Form.Group className="mb-3" controlId="formAccessibility">
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
               <Form.Control
                 onChange={(e) => setAccessibility(e.target.value)}
@@ -97,8 +97,8 @@ export default function Edit({ activityToEdit, editActivity }) {
               />
             </Form.Group>
             <Modal.Footer>
-              <Button type="submit">Save</Button>
-              <Button onClick={handleClose}>Cancel</Button>
+              <Button variant="danger" type="submit">Save</Button>
+              <Button variant="danger" onClick={handleClose}>Cancel</Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>

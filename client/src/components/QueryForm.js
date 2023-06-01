@@ -4,7 +4,7 @@ import Slider from "./Slider";
 import Activity from "./Activity";
 import { Form, Button } from "react-bootstrap";
 
-function QueryForm({ currentActivity, handleSave, handleSubmit }) {
+function QueryForm({ currentActivity, handleSave, handleSubmit, fetchImage }) {
     const [type, setType] = useState("");
     const [participants, setParticipants] = useState("");
     const [minPrice, setMinPrice] = useState("");
@@ -25,13 +25,13 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
             url += `participants=${participants}&`;
         }
         if (minPrice) {
-            url += `minrice=${minPrice}&`;
+            url += `minprice=${minPrice}&`;
         }
         if (price) {
-            url += `minrice=${price}&`;
+            url += `price=${price}&`;
         }
         if (maxPrice) {
-            url += `maxrice=${maxPrice}&`;
+            url += `maxprice=${maxPrice}&`;
         }
         if (accessibility) {
             url += `accessibility=${accessibility}&`;
@@ -51,7 +51,7 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
                     setIsSaved(false);
                 }}
             >
-                <Form.Group className="mb-3" controlId="formType">
+                <Form.Group className="mb-3">
                     <Form.Label htmlFor="type">Type:</Form.Label>
                     <Form.Select onChange={(e) => setType(e.target.value)} id="type">
                         <option value="" disabled selected>
@@ -78,40 +78,65 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label htmlFor="minprice">Minimum price:</Form.Label>
-                    <Form.Control
-                        onChange={(e) => setMinPrice(e.target.value)}
-                        type="text"
-                        id="price"
-                    />
+                    <Form.Select onChange={(e) => setMinPrice(e.target.value)}>
+                        <option value="" disabled selected>
+                            Select your option
+                        </option>
+                        <option value="0">0</option>
+                        <option value="0.1">0.1</option>
+                        <option value="0.2">0.2</option>
+                        <option value="0.3">0.3</option>
+                        <option value="0.4">0.4</option>
+                        <option value="0.5">0.5</option>
+                        <option value="0.6">0.6</option>
+                        <option value="0.7">0.7</option>
+                        <option value="0.8">0.8</option>
+                        <option value="0.9">0.9</option>
+                        <option value="1">1</option>
+                    </Form.Select>
                     <Form.Label htmlFor="maxprice">Maximum price:</Form.Label>
-                    <Form.Control
-                        onChange={(e) => setMaxPrice(e.target.value)}
-                        type="text"
-                        id="price"
-                    />
+                    <Form.Select onChange={(e) => setMaxPrice(e.target.value)}>
+                        <option value="" disabled selected>
+                            Select your option
+                        </option>
+                        <option value="0">0</option>
+                        <option value="0.1">0.1</option>
+                        <option value="0.2">0.2</option>
+                        <option value="0.3">0.3</option>
+                        <option value="0.4">0.4</option>
+                        <option value="0.5">0.5</option>
+                        <option value="0.6">0.6</option>
+                        <option value="0.7">0.7</option>
+                        <option value="0.8">0.8</option>
+                        <option value="0.9">0.9</option>
+                        <option value="1">1</option>
+                    </Form.Select>
                 </Form.Group>
                 {/* <Form.Group>
                     <Form.Label htmlFor="price">Price:</Form.Label>
                 </Form.Group> */}
-                <Form.Group className="mb-3" controlId="formAccessibility">
+                <Form.Group className="mb-3">
                     <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
                     <Form.Control
                         onChange={(e) => setAccessibility(e.target.value)}
                         type="text"
                         id="accessibility"
                     />
-                    <Button className="mt-3" type="submit">Submit</Button>
+                    <Button className="mt-3" variant="danger" type="submit">Submit</Button>
                 </Form.Group>
             </Form>
-            {currentActivity && (
-                <Activity
-                    activity={currentActivity}
-                    handleSave={handleSave}
-                    isSaved={isSaved}
-                    setIsSaved={setIsSaved}
-                />
-            )}
-        </div>
+            {
+                currentActivity && (
+                    <Activity
+                        activity={currentActivity}
+                        handleSave={handleSave}
+                        isSaved={isSaved}
+                        setIsSaved={setIsSaved}
+                        fetchImage={fetchImage}
+                    />
+                )
+            }
+        </div >
     );
 }
 
