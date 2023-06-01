@@ -95,7 +95,7 @@ function App() {
         setShowRnd(false)
         setShowFavorites(false)
         setShowCreate(true)
-      }}>Create your own activity!!!!!!!</button>
+      }}>Create your own activity</button>
       <button onClick={() => {
         setShowRnd(false)
         setShowFavorites(true)

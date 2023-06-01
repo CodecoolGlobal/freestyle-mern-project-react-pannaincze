@@ -100,7 +100,7 @@ function QueryForm({ currentActivity, handleSave, handleSubmit }) {
                         type="text"
                         id="accessibility"
                     />
-                    <Button type="submit">Submit</Button>
+                    <Button className="mt-3" type="submit">Submit</Button>
                 </Form.Group>
             </Form>
             {currentActivity && (
