@@ -68,14 +68,7 @@ function App() {
       });
   }
 
-  function editActivity(
-    id,
-    activity,
-    type,
-    participants,
-    price,
-    accessibility
-  ) {
+  function editActivity(id, activity, type, participants, price, accessibility) {
     const data = {
       description: activity,
       type,
@@ -83,15 +76,12 @@ function App() {
       price,
       accessibility,
     };
-    console.log(id, data);
     fetch(`http://localhost:3000/favorites/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("response: ", data);
+      .then(() =>  {
         fetchFavorites();
       })
       .catch((error) => {
