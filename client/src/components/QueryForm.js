@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
-import Slider from "./Slider";
 import Activity from "./Activity";
 import { Form, Button } from "react-bootstrap";
 
 function QueryForm({ currentActivity, handleSave, handleSubmit, fetchImage }) {
+
     const [type, setType] = useState("");
     const [participants, setParticipants] = useState("");
     const [minPrice, setMinPrice] = useState("");
@@ -68,6 +68,7 @@ function QueryForm({ currentActivity, handleSave, handleSubmit, fetchImage }) {
                         <option value="busywork">Busywork</option>
                     </Form.Select>
                 </Form.Group>
+
                 <Form.Group>
                     <Form.Label htmlFor="participants">Participants:</Form.Label>
                     <Form.Control
@@ -76,6 +77,7 @@ function QueryForm({ currentActivity, handleSave, handleSubmit, fetchImage }) {
                         id="participants"
                     />
                 </Form.Group>
+
                 <Form.Group>
                     <Form.Label htmlFor="minprice">Minimum price:</Form.Label>
                     <Form.Select onChange={(e) => setMinPrice(e.target.value)}>
@@ -112,9 +114,7 @@ function QueryForm({ currentActivity, handleSave, handleSubmit, fetchImage }) {
                         <option value="1">1</option>
                     </Form.Select>
                 </Form.Group>
-                {/* <Form.Group>
-                    <Form.Label htmlFor="price">Price:</Form.Label>
-                </Form.Group> */}
+
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
                     <Form.Control
@@ -124,6 +124,7 @@ function QueryForm({ currentActivity, handleSave, handleSubmit, fetchImage }) {
                     />
                     <Button className="mt-3" variant="danger" type="submit">Submit</Button>
                 </Form.Group>
+
             </Form>
             {
                 currentActivity && (

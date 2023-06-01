@@ -14,6 +14,7 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
   next()
 })
+
 app.use(cors({
   origin: ['http://localhost:3001'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
@@ -52,7 +53,7 @@ app.post('/api/data', (req, res) => {
   });
 
   activity.save()
-    .then(todo => res.json(todo))
+    .then(activity => res.json(activity))
     .catch(err => res.status(400).json({ success: false }));
 
 });
@@ -64,9 +65,7 @@ app.delete('/favorites/:id', (req, res, next) => {
 })
 
 app.patch('/favorites/:id', (req, res, next) => {
-  let update = req.body
-
-  Activity.findByIdAndUpdate(req.params.id, update, {
+  Activity.findByIdAndUpdate(req.params.id, req.body, {
     new: true
   })
     .then(response => res.send(response))

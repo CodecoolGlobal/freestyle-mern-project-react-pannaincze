@@ -4,9 +4,10 @@ import "./App.css";
 import QueryForm from "./components/QueryForm";
 import CreateActivity from "./components/CreateActivity";
 import Favorites from "./components/Favorites";
-import { Button, ButtonGroup, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, ButtonGroup, Container, Navbar } from "react-bootstrap";
 
 function App() {
+ 
   const [currentActivity, setCurrentActivity] = useState(null);
   const [favoriteActivities, setFavoriteActivities] = useState(null);
   const [showRnd, setShowRnd] = useState(false);
@@ -17,24 +18,12 @@ function App() {
     fetchFavorites();
   }, []);
 
-  async function fetchImage(description) {
-    const apiKey = '1NvDE7fcKjluIPqLQJarPaOsQHjv9jjl2eRfrb9caySj64lgithsh7yD';
-    const res = await fetch(`https://api.pexels.com/v1/search?query=${description}&per_page=1`, {
-      headers: {
-        Authorization: apiKey,
-      },
-    });
-    const data = await res.json();
-    return data.photos[0].src.original;
-  }
-
   function handleSubmit(e, url) {
-    console.log(url);
     e.preventDefault();
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setCurrentActivity(data);
       });
   }
@@ -48,14 +37,12 @@ function App() {
       body: JSON.stringify(data),
     })
       .then(() => {
-        console.log(data);
         fetchFavorites();
       })
       .catch((err) => console.log(err));
   }
 
   function deleteActivity(id) {
-    console.log(id);
     fetch(`http://localhost:3000/favorites/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -77,12 +64,13 @@ function App() {
       accessibility,
       image
     };
+    
     fetch(`http://localhost:3000/favorites/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
-      .then(() =>  {
+      .then(() => {
         fetchFavorites();
       })
       .catch((error) => {
@@ -97,6 +85,17 @@ function App() {
         setFavoriteActivities(response);
         console.log(response);
       });
+  }
+
+  async function fetchImage(description) {
+    const apiKey = '1NvDE7fcKjluIPqLQJarPaOsQHjv9jjl2eRfrb9caySj64lgithsh7yD';
+    const res = await fetch(`https://api.pexels.com/v1/search?query=${description}&per_page=1`, {
+      headers: {
+        Authorization: apiKey,
+      },
+    });
+    const data = await res.json();
+    return data.photos[0].src.original;
   }
 
   return (

@@ -17,7 +17,6 @@ export default function CreateActivity({ handleSave, fetchImage }) {
                 setIsSaved(true)
                 fetchImage(activity)
                     .then(image => {
-                        console.log(image)
                         handleSave(e, {
                             activity,
                             type,
@@ -26,8 +25,8 @@ export default function CreateActivity({ handleSave, fetchImage }) {
                             accessibility,
                         }, image,)
                     })
-            }
-            )}>
+            })}>
+
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="activity">Activity:</Form.Label>
                     <Form.Control onChange={(e) => setActivity(e.target.value)} type="text" id="activity" />
@@ -45,15 +44,16 @@ export default function CreateActivity({ handleSave, fetchImage }) {
                         <option value="busywork">Busywork</option>
                     </Form.Select>
                 </Form.Group>
+
                 <Form.Label htmlFor="participants">Participants:</Form.Label>
                 <Form.Control onChange={(e) => setParticipants(e.target.value)} type="text" id="participants" />
 
                 <Form.Label htmlFor="price">Price:</Form.Label>
-                {/* <Slider setPrice={setPrice} /> */}
                 <Form.Control onChange={(e) => setPrice(e.target.value)} type="text" id="price" />
 
                 <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
                 <Form.Control onChange={(e) => setAccessibility(e.target.value)} type="text" id="accessibility" />
+
                 {!isSaved ?
                     <Button
                         variant="danger"

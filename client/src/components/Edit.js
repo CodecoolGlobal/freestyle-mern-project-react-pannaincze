@@ -13,19 +13,22 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
   );
 
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   return (
     <>
       <Button variant="danger" onClick={handleShow}>
         Edit
       </Button>
+
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+
         <Modal.Header closeButton>
           <Modal.Title>Edit your activity</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Form
             onSubmit={(e) => {
@@ -49,6 +52,7 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
               
             }}
           >
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="activity">Activity:</Form.Label>
               <Form.Control
@@ -58,6 +62,7 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
                 value={activity}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formType">
               <Form.Label htmlFor="type">Type:</Form.Label>
               <Form.Select
@@ -79,6 +84,7 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
                 <option value="busywork">Busywork</option>
               </Form.Select>
             </Form.Group>
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="participants">Participants:</Form.Label>
               <Form.Control
@@ -88,6 +94,7 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
                 value={participants}
               />
             </Form.Group>
+
             <Form.Label htmlFor="price">Price:</Form.Label>
             <Form.Control
               onChange={(e) => setPrice(e.target.value)}
@@ -95,6 +102,7 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
               id="price"
               value={price}
             />
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
               <Form.Control
@@ -104,10 +112,12 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
                 value={accessibility}
               />
             </Form.Group>
+
             <Modal.Footer>
               <Button variant="danger" type="submit">Save</Button>
               <Button variant="danger" onClick={handleClose}>Cancel</Button>
             </Modal.Footer>
+
           </Form>
         </Modal.Body>
       </Modal>
