@@ -4,10 +4,10 @@ import "./App.css";
 import QueryForm from "./components/QueryForm";
 import CreateActivity from "./components/CreateActivity";
 import Favorites from "./components/Favorites";
-import { Button, ButtonGroup, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, ButtonGroup, Container, Navbar } from "react-bootstrap";
 
 function App() {
-  
+ 
   const [currentActivity, setCurrentActivity] = useState(null);
   const [favoriteActivities, setFavoriteActivities] = useState(null);
   const [showRnd, setShowRnd] = useState(false);
