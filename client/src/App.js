@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import './App.css';
 import QueryForm from './components/QueryForm';
@@ -26,61 +27,61 @@ function App() {
         setCurrentActivity(data)
       })
   }
-  
- function handleSave(e, activity){
-  e.preventDefault()
-  fetch('http://localhost:3000/api/data', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(activity)
-  })
-  .then(() => {
-    console.log(activity)
-    fetchFavorites()
-  })
-  .catch(err => console.log(err))
- }
 
- function deleteActivity(id) {
-  console.log(id)
-  fetch(`http://localhost:3000/favorites/${id}`, {
-    method: 'DELETE',
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(() => {
-      fetchFavorites()
+  function handleSave(e, activity) {
+    e.preventDefault()
+    fetch('http://localhost:3000/api/data', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(activity)
     })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
+      .then(() => {
+        console.log(activity)
+        fetchFavorites()
+      })
+      .catch(err => console.log(err))
+  }
 
-function editActivity(id, activity, type, participants, price, accessibility) {
-  const data = { description: activity, type, participants, price, accessibility }
-  console.log(id, data)
-  fetch(`http://localhost:3000/favorites/${id}`, {
-    method: 'PATCH',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log('response: ', data)
-      fetchFavorites()
+  function deleteActivity(id) {
+    console.log(id)
+    fetch(`http://localhost:3000/favorites/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
     })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
+      .then(() => {
+        fetchFavorites()
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
 
-function fetchFavorites(){
+  function editActivity(id, activity, type, participants, price, accessibility) {
+    const data = { description: activity, type, participants, price, accessibility }
+    console.log(id, data)
+    fetch(`http://localhost:3000/favorites/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('response: ', data)
+        fetchFavorites()
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  function fetchFavorites() {
     fetch('http://localhost:3000/favorites')
       .then(response => response.json())
       .then(response => {
         setFavoriteActivities(response)
         console.log(response)
       })
-}
+  }
 
   return (
     <div className="App">
@@ -102,10 +103,11 @@ function fetchFavorites(){
       }}>Show favorite activities</button>
       {showRnd && <QueryForm
         handleSubmit={handleSubmit}
-        currentActivity = {currentActivity}
+        currentActivity={currentActivity}
         handleSave={handleSave}
+
       />}
-      {showCreate && <CreateActivity handleSave={handleSave}/>}
+      {showCreate && <CreateActivity handleSave={handleSave} />}
       {showFav && <Favorites favorites={favoriteActivities} deleteActivity={deleteActivity} editActivity={editActivity} />}
     </div>
   );

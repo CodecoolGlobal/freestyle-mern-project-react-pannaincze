@@ -66,7 +66,6 @@ app.delete('/favorites/:id', (req, res, next) => {
 app.patch('/favorites/:id', (req, res, next) => {
   let update = req.body
 
-
   Activity.findByIdAndUpdate(req.params.id, update, {
     new: true
   })

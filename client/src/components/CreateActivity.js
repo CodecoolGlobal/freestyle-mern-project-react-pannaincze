@@ -19,7 +19,8 @@ export default function CreateActivity({ handleSave }) {
                 participants,
                 price,
                 accessibility
-            })}
+            })
+        }
         )}>
             <label htmlFor="activity">Activity:</label>
             <input onChange={(e) => setActivity(e.target.value)} type="text" id="activity" />
@@ -45,8 +46,10 @@ export default function CreateActivity({ handleSave }) {
             </div>
             <label htmlFor="accessibility">Accessibility:</label>
             <input onChange={(e) => setAccessibility(e.target.value)} type="text" id="accessibility" />
-            {!isSaved ? <input type="submit" value="Add to favorite activities"></input> : 
-            <h3>You have added this activity to your favorites!</h3>}
+            {!isSaved ?
+                <input type="submit" value="Add to favorite activities"></input>
+                :
+                <h3>You have added this activity to your favorites!</h3>}
         </form>
     )
 }
