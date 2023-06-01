@@ -68,13 +68,14 @@ function App() {
       });
   }
 
-  function editActivity(id, activity, type, participants, price, accessibility) {
+  function editActivity(id, activity, type, participants, price, accessibility, image) {
     const data = {
       description: activity,
       type,
       participants,
       price,
       accessibility,
+      image
     };
     fetch(`http://localhost:3000/favorites/${id}`, {
       method: "PATCH",
@@ -157,6 +158,7 @@ function App() {
           favorites={favoriteActivities}
           deleteActivity={deleteActivity}
           editActivity={editActivity}
+          fetchImage={fetchImage}
         />
       )}
     </div>

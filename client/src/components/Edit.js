@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 
-export default function Edit({ activityToEdit, editActivity }) {
+export default function Edit({ activityToEdit, editActivity, fetchImage }) {
   const [activity, setActivity] = useState(activityToEdit.description);
   const [type, setType] = useState(activityToEdit.type);
   const [participants, setParticipants] = useState(activityToEdit.participants);
@@ -29,16 +29,24 @@ export default function Edit({ activityToEdit, editActivity }) {
         <Modal.Body>
           <Form
             onSubmit={(e) => {
+
               e.preventDefault();
-              editActivity(
-                activityToEdit._id,
-                activity,
-                type,
-                participants,
-                price,
-                accessibility
-              );
+              fetchImage(activity)
+                .then(newImage => {
+                  activityToEdit.image = newImage
+                  console.log(activityToEdit.image);
+                })
+                .then(() => editActivity(
+                  activityToEdit._id,
+                  activity,
+                  type,
+                  participants,
+                  price,
+                  accessibility,
+                  activityToEdit.image
+                ))
               handleClose()
+              
             }}
           >
             <Form.Group className="mb-3">
