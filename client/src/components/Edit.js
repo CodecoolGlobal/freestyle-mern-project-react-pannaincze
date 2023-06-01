@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 
 export default function Edit({ activityToEdit, editActivity }) {
+
   const [activity, setActivity] = useState(activityToEdit.description);
   const [type, setType] = useState(activityToEdit.type);
   const [participants, setParticipants] = useState(activityToEdit.participants);
@@ -13,34 +14,37 @@ export default function Edit({ activityToEdit, editActivity }) {
   );
 
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   return (
     <>
       <Button variant="danger" onClick={handleShow}>
         Edit
       </Button>
+
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+
         <Modal.Header closeButton>
           <Modal.Title>Edit your activity</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
-          <Form
-            onSubmit={(e) => {
-              e.preventDefault();
-              editActivity(
-                activityToEdit._id,
-                activity,
-                type,
-                participants,
-                price,
-                accessibility
-              );
-              handleClose()
-            }}
+          <Form onSubmit={(e) => {
+            e.preventDefault();
+            editActivity(
+              activityToEdit._id,
+              activity,
+              type,
+              participants,
+              price,
+              accessibility
+            );
+            handleClose()
+          }}
           >
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="activity">Activity:</Form.Label>
               <Form.Control
@@ -50,6 +54,7 @@ export default function Edit({ activityToEdit, editActivity }) {
                 value={activity}
               />
             </Form.Group>
+
             <Form.Group className="mb-3" controlId="formType">
               <Form.Label htmlFor="type">Type:</Form.Label>
               <Form.Select
@@ -71,6 +76,7 @@ export default function Edit({ activityToEdit, editActivity }) {
                 <option value="busywork">Busywork</option>
               </Form.Select>
             </Form.Group>
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="participants">Participants:</Form.Label>
               <Form.Control
@@ -80,6 +86,7 @@ export default function Edit({ activityToEdit, editActivity }) {
                 value={participants}
               />
             </Form.Group>
+
             <Form.Label htmlFor="price">Price:</Form.Label>
             <Form.Control
               onChange={(e) => setPrice(e.target.value)}
@@ -87,6 +94,7 @@ export default function Edit({ activityToEdit, editActivity }) {
               id="price"
               value={price}
             />
+
             <Form.Group className="mb-3">
               <Form.Label htmlFor="accessibility">Accessibility:</Form.Label>
               <Form.Control
@@ -96,10 +104,12 @@ export default function Edit({ activityToEdit, editActivity }) {
                 value={accessibility}
               />
             </Form.Group>
+
             <Modal.Footer>
               <Button variant="danger" type="submit">Save</Button>
               <Button variant="danger" onClick={handleClose}>Cancel</Button>
             </Modal.Footer>
+
           </Form>
         </Modal.Body>
       </Modal>
