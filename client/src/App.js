@@ -7,7 +7,7 @@ import Favorites from "./components/Favorites";
 import { Button, ButtonGroup, Container, Navbar } from "react-bootstrap";
 
 function App() {
- 
+
   const [currentActivity, setCurrentActivity] = useState(null);
   const [favoriteActivities, setFavoriteActivities] = useState(null);
   const [showRnd, setShowRnd] = useState(false);
@@ -64,7 +64,7 @@ function App() {
       accessibility,
       image
     };
-    
+
     fetch(`http://localhost:3000/favorites/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -102,7 +102,7 @@ function App() {
     <div className="App">
       <Navbar expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="?">
             {`(>_<)`} I'm bored
           </Navbar.Brand>
         </Container>

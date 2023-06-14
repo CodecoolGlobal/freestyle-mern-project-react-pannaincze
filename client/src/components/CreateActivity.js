@@ -14,6 +14,7 @@ export default function CreateActivity({ handleSave, fetchImage }) {
     return (
         <div className='createDiv'>
             <Form className='mx-5' onSubmit={((e) => {
+                e.preventDefault()
                 setIsSaved(true)
                 fetchImage(activity)
                     .then(image => {
