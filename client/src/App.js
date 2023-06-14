@@ -110,7 +110,7 @@ function App() {
       <ButtonGroup className="m-4">
         <Button
           className="px-5 py-5"
-          variant="danger"
+          variant="warning"
           onClick={() => {
             setShowRnd(false);
             setShowFavorites(false);
@@ -132,7 +132,7 @@ function App() {
         </Button>
         <Button
           className="px-5 py-5"
-          variant="danger"
+          variant="info"
           onClick={() => {
             setShowRnd(false);
             setShowFavorites(true);
@@ -158,6 +158,7 @@ function App() {
           deleteActivity={deleteActivity}
           editActivity={editActivity}
           fetchImage={fetchImage}
+          bluebutton={true}
         />
       )}
     </div>

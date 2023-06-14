@@ -57,7 +57,7 @@ export default function CreateActivity({ handleSave, fetchImage }) {
 
                 {!isSaved ?
                     <Button
-                        variant="danger"
+                        variant="warning"
                         className="mt-3" type="submit">Add to favorite activities</Button>
                     :
                     <h3>You have added this activity to your favorites!</h3>}

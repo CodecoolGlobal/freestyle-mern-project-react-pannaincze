@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
-export default function Favorites({ favorites, deleteActivity, editActivity, fetchImage }) {
+export default function Favorites({ favorites, deleteActivity, editActivity, fetchImage, bluebutton }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
 
@@ -29,12 +29,21 @@ export default function Favorites({ favorites, deleteActivity, editActivity, fet
                 </ListGroup.Item>
               </ListGroup>
 
-              <Edit activityToEdit={favorite} editActivity={editActivity} fetchImage={fetchImage} />
-              <Button className="mt-1"
-                variant="danger"
-                onClick={() => { deleteActivity(favorite._id); }}>
-                Remove
-              </Button>
+              <Edit activityToEdit={favorite} editActivity={editActivity} fetchImage={fetchImage} bluebutton={bluebutton} />
+              {bluebutton ?
+                <Button className="mt-1"
+                  variant="info"
+                  onClick={() => { deleteActivity(favorite._id); }}>
+                  Remove
+                </Button>
+                :
+                <Button className="mt-1"
+                  variant="danger"
+                  onClick={() => { deleteActivity(favorite._id); }}>
+                  Remove
+                </Button>
+              }
+
 
             </Card>
           </div>
