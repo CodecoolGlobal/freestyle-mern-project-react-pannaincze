@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Form, Button, Modal } from "react-bootstrap";
 
-export default function Edit({ activityToEdit, editActivity, fetchImage }) {
+export default function Edit({ activityToEdit, editActivity, fetchImage, bluebutton }) {
   const [activity, setActivity] = useState(activityToEdit.description);
   const [type, setType] = useState(activityToEdit.type);
   const [participants, setParticipants] = useState(activityToEdit.participants);
@@ -19,9 +19,15 @@ export default function Edit({ activityToEdit, editActivity, fetchImage }) {
 
   return (
     <>
-      <Button variant="danger" onClick={handleShow}>
+      {bluebutton ?
+                <Button variant="info" onClick={handleShow}>
+                Edit
+              </Button>
+                :
+                <Button variant="danger" onClick={handleShow}>
         Edit
       </Button>
+              }
 
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
 
