@@ -25,13 +25,16 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         setCurrentActivity(data);
+        console.log(currentActivity);
       });
   }
+
+  console.log(currentActivity);
 
   function handleSave(e, activity, image) {
     const data = { ...activity, image }
     e.preventDefault();
-    fetch("http://localhost:3000/api/data", {
+    fetch("http://localhost:3000/api/activities", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -43,7 +46,7 @@ function App() {
   }
 
   function deleteActivity(id) {
-    fetch(`http://localhost:3000/favorites/${id}`, {
+    fetch(`http://localhost:3000/api/activities/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     })
@@ -65,7 +68,7 @@ function App() {
       image
     };
 
-    fetch(`http://localhost:3000/favorites/${id}`, {
+    fetch(`http://localhost:3000/api/activities/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -79,7 +82,7 @@ function App() {
   }
 
   function fetchFavorites() {
-    fetch("http://localhost:3000/favorites")
+    fetch("http://localhost:3000/api/activities")
       .then((response) => response.json())
       .then((response) => {
         setFavoriteActivities(response);
@@ -102,7 +105,7 @@ function App() {
     <div className="App">
       <Navbar expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="?">
+          <Navbar.Brand>
             {`(>_<)`} I'm bored
           </Navbar.Brand>
         </Container>
