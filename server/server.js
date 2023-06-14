@@ -24,12 +24,12 @@ mongoose.connect("mongodb+srv://pannaincze:8LrZGgipeY9veHEy@cluster0.6y94z96.mon
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
 
-app.get('/favorites', async (req, res) => {
+app.get('/api/activities', async (req, res) => {
   const data = await Activity.find({});
   res.send(data)
 })
 
-app.post('/api/data', (req, res) => {
+app.post('/api/activities', (req, res) => {
 
   const description = req.body.activity;
   const type = req.body.type;
@@ -58,13 +58,13 @@ app.post('/api/data', (req, res) => {
 
 });
 
-app.delete('/favorites/:id', (req, res, next) => {
+app.delete('/api/activities/:id', (req, res, next) => {
   Activity.findByIdAndDelete(req.params.id)
     .then(response => res.send(response))
     .catch(error => next(error))
 })
 
-app.patch('/favorites/:id', (req, res, next) => {
+app.patch('/api/activities/:id', (req, res, next) => {
   Activity.findByIdAndUpdate(req.params.id, req.body, {
     new: true
   })
