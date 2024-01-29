@@ -20,9 +20,11 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
 }));
 
-mongoose.connect("mongodb+srv://pannaincze:8LrZGgipeY9veHEy@cluster0.6y94z96.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://admin:admin@cluster0.pxvjla8.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
+
+
 
 app.get('/api/activities', async (req, res) => {
   const data = await Activity.find({});
