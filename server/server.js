@@ -9,18 +9,18 @@ const app = express()
 app.use(express.json())
 
 app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3001/') // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5000/') // update to match the domain you will make the request from
   res.header('Access-Controll-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
   next()
 })
 
 app.use(cors({
-  origin: ['http://localhost:3001'],
+  origin: ['http://localhost:5000'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
 }));
 
-mongoose.connect("mongodb+srv://admin:admin@cluster0.pxvjla8.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://mongo:27017/bored', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error(err));
 

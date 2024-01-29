@@ -2,7 +2,7 @@ services:
   client:
     build: ./client
     ports:
-      - 3000:3000
+      - "5000:5000"
     stdin_open: true
     volumes:
       - ./client:/usr/src/app
@@ -24,17 +24,16 @@ services:
     networks:
       - express-mongo
       - react-express
-    expose: 
-      - 3000
+    ports:
+      - "3000:3000"
   mongo:
-    restart: always
     image: mongo:4.2.0
     volumes:
       - ./data:/data/db
     networks:
       - express-mongo
-    expose:
-      - 27017
+    ports:
+      - "27017:27017"
 networks:
   react-express:
   express-mongo:
