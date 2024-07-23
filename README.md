@@ -18,9 +18,9 @@
 
 ### Contributors
 
-* [Lichtner Levente][https://github.com/LichtnerLevente]
-* [Király Bence][https://github.com/breezh]
-* [Incze Panna][https://github.com/pannaincze]
+* [![Lichtner Levente](https://github.com/LichtnerLevente)]
+* [[Király Bence](https://github.com/breezh)]
+* [![Incze Panna](https://img.shields.io/badge/white)](https://github.com/pannaincze)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
