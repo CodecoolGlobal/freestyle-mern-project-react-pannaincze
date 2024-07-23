@@ -123,3 +123,5 @@ To begin it is advised to have the following softwares:
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
+[product-screenshot]: images/screenshot.png
+
