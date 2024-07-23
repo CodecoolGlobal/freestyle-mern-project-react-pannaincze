@@ -18,9 +18,9 @@
 
 ### Contributors
 
-* Lichtner Levente[https://github.com/LichtnerLevente]
-* Király Bence[https://github.com/breezh]
-* Incze Panna[https://github.com/pannaincze]
+* [Lichtner Levente][https://github.com/LichtnerLevente]
+* [Király Bence][https://github.com/breezh]
+* [Incze Panna][https://github.com/pannaincze]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -63,12 +63,18 @@ This collaborative project, developed by a team of three, focuses on designing a
 ### Built With
 
 * [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://en.wikipedia.org/wiki/JavaScript)
-* [![Mongo]https://img.shields.io/badge/Mongo-563D7C?style=for-the-badge&logo=mongo&logoColor=green(https://www.mongodb.com/Mongo-url)]
-* [![Express]https://img.shields.io/badge/Express-563D7C?style=for-the-badge&logo=express&logoColor=brown(https://expressjs.com/Express-url)]
-* [![React]https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB(https://react.dev/)]
-* [![Node][Node.js]https://img.shields.io/badge/Node-20232A?style=for-the-badge&logo=node&logoColor=black(https://nodejs.org/en)]
-* [![Bootstrap]https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=orange(https://getbootstrap.com/)]
-* [![Docker][Docker.com]https://img.shields.io/badge/Docker-563D7C?style=for-the-badge&logo=docker&logoColor=blue(https://www.docker.com/)]
+* [![Mongo](https://img.shields.io/badge/Mongo-563D7C?style=for-the-badge&logo=mongo&logoColor=green)]
+(https://www.mongodb.com/Mongo-url)
+* [![Express](https://img.shields.io/badge/Express-563D7C?style=for-the-badge&logo=express&logoColor=brown)]
+(https://expressjs.com/Express-url)
+* [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAF)B]
+(https://react.dev/)
+* [![Node][Node.js](https://img.shields.io/badge/Node-20232A?style=for-the-badge&logo=node&logoColor=black)]
+(https://nodejs.org/en)
+* [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=orange)]
+(https://getbootstrap.com/)
+* [![Docker][Docker.com](https://img.shields.io/badge/Docker-563D7C?style=for-the-badge&logo=docker&logoColor=blue)]
+(https://www.docker.com/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>0
