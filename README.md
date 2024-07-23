@@ -66,7 +66,7 @@ This collaborative project, developed by a team of three, focuses on designing a
 * [![Mongo](https://img.shields.io/badge/Mongo-white?style=for-the-badgestyle=for-the-badge)](https://www.mongodb.com/Mongo-url)
 * [![Express](https://img.shields.io/badge/Express-brown?style=for-the-badge)](https://expressjs.com/Express-url)
 * [![React](https://img.shields.io/badge/React-green?style=for-the-badge)](https://react.dev/)
-* [![Node](https://img.shields.io/badge/Node-black?style=for-the-badge)](https://nodejs.org/en)
+* [![Node](https://img.shields.io/badge/Node-yellow?style=for-the-badge)](https://nodejs.org/en)
 * [![Bootstrap](https://img.shields.io/badge/Bootstrap-orange?style=for-the-badge)](https://getbootstrap.com/)
 * [![Docker](https://img.shields.io/badge/Docker-blue?style=for-the-badge)](https://www.docker.com/)
 
