@@ -63,11 +63,11 @@ This collaborative project, developed by a team of three, focuses on designing a
 ### Built With
 
 * [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge)](https://en.wikipedia.org/wiki/JavaScript)
-* [![Mongo](https://img.shields.io/badge/Mongo-white?style=for-the-badgestyle=for-the-badge)](https://www.mongodb.com/Mongo-url)
-* [![Express](https://img.shields.io/badge/Express-brown?style=for-the-badge)](https://expressjs.com/Express-url)
+* [![Mongo](https://img.shields.io/badge/Mongo-white?style=for-the-badge)](https://www.mongodb.com/Mongo-url)
+* [![Express](https://img.shields.io/badge/Express-red?style=for-the-badge)](https://expressjs.com/Express-url)
 * [![React](https://img.shields.io/badge/React-green?style=for-the-badge)](https://react.dev/)
-* [![Node](https://img.shields.io/badge/Node-yellow?style=for-the-badge)](https://nodejs.org/en)
-* [![Bootstrap](https://img.shields.io/badge/Bootstrap-orange?style=for-the-badge)](https://getbootstrap.com/)
+* [![Node](https://img.shields.io/badge/Node-orange?style=for-the-badge)](https://nodejs.org/en)
+* [![Bootstrap](https://img.shields.io/badge/Bootstrap-yellow?style=for-the-badge)](https://getbootstrap.com/)
 * [![Docker](https://img.shields.io/badge/Docker-blue?style=for-the-badge)](https://www.docker.com/)
 
 
