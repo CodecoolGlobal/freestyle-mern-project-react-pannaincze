@@ -63,7 +63,7 @@ This collaborative project, developed by a team of three, focuses on designing a
 ### Built With
 
 * [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://en.wikipedia.org/wiki/JavaScript)
-* [![Mongo](https://img.shields.io/badge/Mongo-white)](https://www.mongodb.com/Mongo-url)
+* [![Mongo](https://img.shields.io/badge/Mongo-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%white)](https://www.mongodb.com/Mongo-url)
 * [![Express](https://img.shields.io/badge/Express-brown)](https://expressjs.com/Express-url)
 * [![React](https://img.shields.io/badge/React-green)](https://react.dev/)
 * [![Node](https://img.shields.io/badge/Node-black)](https://nodejs.org/en)
@@ -71,7 +71,7 @@ This collaborative project, developed by a team of three, focuses on designing a
 * [![Docker](https://img.shields.io/badge/Docker-blue)](https://www.docker.com/)
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>0
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -123,4 +123,3 @@ To begin it is advised to have the following softwares:
 [React-url]: https://reactjs.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-
