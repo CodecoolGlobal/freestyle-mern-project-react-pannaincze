@@ -11,9 +11,9 @@
 
   <h3 align="center">A MERN Project</h3>
 
-    <p align="center">
+  <p align="center">
       A learning project for MERN stack
-    </p>
+  </p>
   </div>
 
   ### Contributors
@@ -49,8 +49,8 @@
   <!-- ABOUT THE PROJECT -->
   ## About The Project
 
-  [![Product Name Screen Shot][product-screenshot]](https://localhost:5000))
-  This collaborative project, developed by a team of three, focuses on designing a dynamic website using the MERN (MongoDB, Express.js, React, Node.js) stack. The primary objective of the web application is to provide users with a list of random activities to do when boredom strikes. Leveraging the MERN stack, each team member contributed their expertise in frontend and backend programming to create a cohesive and engaging web experience.
+![Product Name Screen Shot](product-screenshot)
+This collaborative project, developed by a team of three, focuses on designing a dynamic website using the MERN (MongoDB, Express.js, React, Node.js) stack. The primary objective of the web application is to provide users with a list of random activities to do when boredom strikes. Leveraging the MERN stack, each team member contributed their expertise in frontend and backend programming to create a cohesive and engaging web experience.
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
