@@ -72,39 +72,30 @@ This collaborative project, developed by a team of three, focuses on designing a
 
 
   <!-- GETTING STARTED -->
-  ## Getting Started
+## Getting Started
 
-  ### Prerequisites
+1. **Download Docker:**
+   - Download and install Docker from [Docker's official website](https://www.docker.com/get-started).
 
-  To begin it is advised to have the following softwares:
-  * <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>,
-  * <a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html">Node</a>
+2. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/CodecoolGlobal/freestyle-mern-project-react-pannaincze/edit/development/README.md
+   ```
 
-  ### Installation
+3. **Navigate to the Project Directory:**
+   ```bash
+   cd [project_directory]
+   ```
 
-  1. **Download Docker:**
-    - Download and install Docker from [Docker's official website](https://www.docker.com/get-started).
+4. **Run Docker Compose:**
+   ```bash
+   docker-compose up
+   ```
 
-  2. **Clone the Repository:**
-    ```bash
-    git clone https://github.com/CodecoolGlobal/freestyle-mern-project-react-pannaincze/edit/development/README.md
-    ```
+   This command will pull the necessary images, build the containers, and launch the application.
 
-  3. **Navigate to the Project Directory:**
-    ```bash
-    cd [project_directory]
-    ```
-
-  4. **Run Docker Compose:**
-    ```bash
-    docker-compose up
-    ```
-
-    This command will pull the necessary images, build the containers, and launch the application.
-
-  5. **Access the Application:**
-    - You can open your browser and go to [http://localhost:3000](http://localhost:5000) to see the site for yourself.
-
+5. **Access the Application:**
+   - Open your browser and go to [http://localhost:5000](http://localhost:5000).
 
 
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
